@@ -1,0 +1,48 @@
+package com.xbsoftwares.srpingboot.model;
+
+
+@Entity
+@table
+public class Employee {
+	
+	private long id;
+	private String firtsName;
+	private String lastName;
+	private String emailId;
+	
+	public Employee() {
+		
+	}
+	
+	public Employee(long id, String firtsName, String lastName, String emailId) {
+		super();
+		this.id = id;
+		this.firtsName = firtsName;
+		this.lastName = lastName;
+		this.emailId = emailId;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getFirtsName() {
+		return firtsName;
+	}
+	public void setFirtsName(String firtsName) {
+		this.firtsName = firtsName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+}
