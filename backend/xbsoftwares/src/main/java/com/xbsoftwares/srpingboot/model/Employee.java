@@ -24,16 +24,20 @@ public class Employee {
 	@Column(name = "emaildId")
 	private String emailId;
 	
+	@Column(name = "action")
+	private String action;
+	
 	public Employee() {
 		
 	}
 	
-	public Employee(long id, String firtsName, String lastName, String emailId) {
+	public Employee(long id, String firtsName, String lastName, String emailId, String action) {
 		super();
 		this.id = id;
 		this.firtsName = firtsName;
 		this.lastName = lastName;
 		this.emailId = emailId;
+		this.action = action;
 	}
 	public long getId() {
 		return id;
@@ -58,5 +62,13 @@ public class Employee {
 	}
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String action) {
+		this.action = action;
 	}
 }
