@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EmployeeService from "../services/EmployeeService";
-
+import HeaderComponent from "./HeaderComponent";
+import FooterComponent from "./FooterComponent";
 class ListEmployeeComponent extends Component {
     constructor(props) {
         super(props)
@@ -10,43 +11,45 @@ class ListEmployeeComponent extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         EmployeeService.getEmployees().then((res) => {
-            this.setState({ employees: res.data});
+            this.setState({ employees: res.data });
         });
     }
 
     render() {
         return (
             <div>
+                <HeaderComponent />
+                <FooterComponent />
                 <h2 className="text-center">Lista de funcionários</h2>
                 <div className="row">
-                    <table className="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th> Funcionário Nome</th>
-                                <th> Funcionário Sobrenome</th>
-                                <th> Funcionário Email</th>
-                                <th> Funções</th>
-                            </tr>
+                    <div className="container">
+                        <table className="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> Funcionário Nome</th>
+                                    <th> Funcionário Sobrenome</th>
+                                    <th> Funcionário Email</th>
+                                    <th> Funções</th>
+                                </tr>
+                            </thead>
 
-                        </thead>
-
-                        <tbody>
-                            {
-                                this.state.employees.map(
-                                    employee =>
-                                    <tr key = {employee.id}>
-                                        <td> {employee.firtsName} </td>
-                                        <td> {employee.lastName} </td>
-                                        <td> {employee.emailId} </td>
-                                        <td> {employee.action} </td>
-                                    </tr>
-                                )
-                            }
-                        </tbody>
-                    </table>
-
+                            <tbody>
+                                {
+                                    this.state.employees.map(
+                                        employee =>
+                                            <tr key={employee.id}>
+                                                <td> {employee.firtsName} </td>
+                                                <td> {employee.lastName} </td>
+                                                <td> {employee.emailId} </td>
+                                                <td> {employee.action} </td>
+                                            </tr>
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         )

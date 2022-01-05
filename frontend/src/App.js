@@ -1,16 +1,17 @@
 import './App.css';
-import FooterComponent from './components/FooterComponent';
-import HeaderComponent from './components/HeaderComponent';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ListEmployeeComponent from './components/ListEmployeeComponent';
+import Home from './Home';
 
 function App() {
   return (
     <div>
-      <HeaderComponent />
-      <div className="container">
-        <ListEmployeeComponent />
-      </div>
-      <FooterComponent />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/funcionarios" element={<ListEmployeeComponent />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

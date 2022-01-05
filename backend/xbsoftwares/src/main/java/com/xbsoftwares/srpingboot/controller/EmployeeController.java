@@ -13,7 +13,7 @@ import com.xbsoftwares.srpingboot.repository.EmployeeRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/home")
+@RequestMapping("/employees")
 public class EmployeeController {
 
 	@Autowired

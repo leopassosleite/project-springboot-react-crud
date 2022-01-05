@@ -13,7 +13,7 @@ class HeaderComponent extends Component {
         return (
             <div>
                 <header className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-                    <a href="http://localhost:8080/home/employees" className="navbar-brand"> XBarts App</a>
+                    <a href="http://localhost:3000/" className="navbar-brand"> XBarts App</a>
                 </header>
             </div>
         )
