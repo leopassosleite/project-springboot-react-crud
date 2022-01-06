@@ -1,5 +1,7 @@
 package com.xbsoftwares.srpingboot.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,17 +11,18 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "employee")
-public class Employee {
-	
+public class Employee implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "firstName")
-	private String firtsName;
+	@Column(name = "name")
+	private String name;
 	
-	@Column(name = "lastName")
-	private String lastName;
+	@Column(name = "phone")
+	private String phone;
 	
 	@Column(name = "emaildId")
 	private String emailId;
@@ -31,11 +34,11 @@ public class Employee {
 		
 	}
 	
-	public Employee(long id, String firtsName, String lastName, String emailId, String action) {
+	public Employee(long id, String name, String phone, String emailId, String action) {
 		super();
 		this.id = id;
-		this.firtsName = firtsName;
-		this.lastName = lastName;
+		this.name = name;
+		this.phone = phone;
 		this.emailId = emailId;
 		this.action = action;
 	}
@@ -45,17 +48,17 @@ public class Employee {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getFirtsName() {
-		return firtsName;
+	public String getName() {
+		return name;
 	}
-	public void setFirtsName(String firtsName) {
-		this.firtsName = firtsName;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getLastName() {
-		return lastName;
+	public String getPhone() {
+		return phone;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getEmailId() {
 		return emailId;
