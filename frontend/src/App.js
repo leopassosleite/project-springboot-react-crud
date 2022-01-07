@@ -4,12 +4,13 @@ import ListEmployeeComponent from './components/layout/ListEmployeeComponent';
 import CreateEmployeeComponent from './components/layout/CreateEmployeeComponent';
 import Footer from './components/layout/Footer';
 
-import Home from './pages/Home';
-import NewProject from './pages/NewProject';
-import Projects from './pages/Projects';
+import Home from './components/pages/Home';
+import NewProject from './components/pages/NewProject';
+import Projects from './components/pages/Projects';
 
 import NavBar from './components/layout/NavBar';
 import Container from './components/layout/Container';
+
 
 
 
