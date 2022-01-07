@@ -1,21 +1,15 @@
-import React, { Component } from "react";
+import ProjectForm from '../components/project/ProjectForm'
+import styles from './NewProject.module.css'
 
-class Home extends Component {
-    constructor(props) {
-        super(props)
+function NewProject() {
+    return (
+        <div className={styles.newproject_container}>
+            <h1>Criar Projeto</h1>
+            <p>Crie seu projeto e administre seus gastos</p>
+            <ProjectForm />
+        </div>
+    )
 
-        this.state = {
-
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>novo projeto</h1>
-            </div>
-        )
-    }
 }
 
-export default Home
+export default NewProject
