@@ -1,86 +1,62 @@
-import React, { Component } from "react";
-class CreateEmployeeComponent extends Component {
-    constructor(props) {
-        super(props)
-   
+import React, { useState } from "react";
+import styles from './CreateEmployeeComponent.module.css'
+const CreateEmployeeComponent = () => {
 
-        this.state = {
-            name: '',
-            phone: '',
-            emaildId: '',
-            action: ''
-        }
-        this.changeNameHandler = this.changeNameHandler.bind(this);
-        this.changePhoneHandler = this.changePhoneHandler.bind(this);
-        this.saveEmployee = this.saveEmployee.bind(this);
-    }
+    const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [emailId, setEmailId] = useState('')
+    const [action, setAction] = useState('')
 
-    saveEmployee = (e) => {
+    const saveEmployee = (e) => {
         e.preventDefault();
-        let employee = { name: this.state.name, phone: this.state.phone, emailId: this.state.emaildId, action: this.state.action }
-        console.log('employee => ' + JSON.stringify(employee));
+
+        const employee = { name, phone, emailId, action }
+        console.log(employee);
     }
 
-    changeNameHandler = (event) => {
-        this.setState({ name: event.target.value });
+    const CancelEmployee = (e) => {
+        console.log("Cancelado")
     }
 
-    changePhoneHandler = (event) => {
-        this.setState({ phone: event.target.value });
-    }
+    return (
+        <div className={styles.body}>
+            <br></br>
+            <div className="container">
+                <div className="row">
+                    <div className="card col-md-6 offset-md-3 offset-md-3">
+                        <h3 className="text-center">Inserir funcionário</h3>
+                        <div className="card-body">
+                            <form>
+                                <div className="form-group mb-2">
+                                    <label className="form-label">Nome completo*</label>
+                                    <input placeholder="Nome" name="name" className="form-control"
+                                        value={name} onChange={(e) => setName(e.target.value)} />
+                                </div>
+                                <div className="form-group mb-2">
+                                    <label className="form-labl">Telefone*</label>
+                                    <input placeholder="Telefone" name="phone" className="form-control"
+                                        value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                </div>
+                                <div className="form-group mb-2">
+                                    <label className="form-label">Email*</label>
+                                    <input placeholder="Email" name="emaildId" className="form-control"
+                                        value={emailId} onChange={(e) => setEmailId(e.target.value)} />
+                                </div>
+                                <div className="form-group mb-2">
+                                    <label className="form-label">Função*</label>
+                                    <input placeholder="função" name="action" className="form-control"
+                                        value={action} onChange={(e) => setAction(e.target.value)} />
+                                </div>
 
-    changeEmailIdHandler = (event) => {
-        this.setState({ emadilId: event.target.value });
-    }
-
-    changeActionHandler = (event) => {
-        this.setState({ action: event.target.value });
-    }
-
-    cancel() {
-        this.props.useNavigate.push('funcionarios');
-    }
-
-    render() {
-        return (
-            <div>
-                <div className="container">
-                    <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Inserir funcionário</h3>
-                            <div className="card-body">
-                                <form>
-                                    <div className="form-group">
-                                        <label>Nome completo*</label>
-                                        <input placeholder="Nome" name="name" className="form-control"
-                                            value={this.state.name} onChange={this.changeNameHandler} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Telefone*</label>
-                                        <input placeholder="Telefone" name="phone" className="form-control"
-                                            value={this.state.phone} onChange={this.changePhoneHandler} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Email*</label>
-                                        <input placeholder="Email" name="emaildId" className="form-control"
-                                            value={this.state.email} onChange={this.changeEmailIdHandler} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Função*</label>
-                                        <input placeholder="função" name="action" className="form-control"
-                                            value={this.state.action} onChange={this.changeActionHandler} />
-                                    </div>
-
-                                    <button className="btn btn-success" onClick={this.saveEmployee}>Salvar</button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancelar</button>
-                                </form>
-                            </div>
+                                <button className="btn btn-success" onClick={(e) => saveEmployee(e)}>Salvar</button>
+                                <button className="btn btn-danger" onClick={(e) => CancelEmployee(e)} style={{ marginLeft: "10px" }}>Cancelar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default CreateEmployeeComponent
