@@ -6,7 +6,7 @@
 .list {
     font-size: 1.1em;
     display: flex;
-    margin-top: -40px;
+    margin-top: -45px;
     margin-left: 970px;
     justify-content: space-between;
 }
@@ -17,5 +17,5 @@
 }
 
 .item a:hover {
-    color: rgb(74, 219, 30);
+    color: rgb(201, 193, 81);
 }

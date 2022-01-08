@@ -2,6 +2,7 @@ import React, { Component } from "react";
 class CreateEmployeeComponent extends Component {
     constructor(props) {
         super(props)
+   
 
         this.state = {
             name: '',
@@ -37,7 +38,7 @@ class CreateEmployeeComponent extends Component {
     }
 
     cancel() {
-        this.props.history.push('/funcionarios');
+        this.props.useNavigate.push('funcionarios');
     }
 
     render() {
