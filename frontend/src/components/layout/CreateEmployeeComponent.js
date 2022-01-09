@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom'
+import EmployeeService from "../../services/EmployeeService";
 import styles from './CreateEmployeeComponent.module.css'
 const CreateEmployeeComponent = () => {
 
@@ -6,16 +8,26 @@ const CreateEmployeeComponent = () => {
     const [phone, setPhone] = useState('')
     const [emailId, setEmailId] = useState('')
     const [action, setAction] = useState('')
+    const navigate = useNavigate();
 
     const saveEmployee = (e) => {
         e.preventDefault();
 
         const employee = { name, phone, emailId, action }
-        console.log(employee);
+        
+        EmployeeService.addEmployee(employee).then((response) => {
+
+            console.log(response.data)
+
+            navigate("/funcionarios")
+
+        }).catch(error => {
+            console.log(error)
+        })
     }
 
     const CancelEmployee = (e) => {
-        console.log("Cancelado")
+       navigate("/funcionarios")
     }
 
     return (

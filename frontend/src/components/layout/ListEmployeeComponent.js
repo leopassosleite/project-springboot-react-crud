@@ -9,7 +9,7 @@ const ListEmployeeComponent = () => {
 
     useEffect(() => {
 
-        EmployeeService.getEmployees().then((response) => {
+        EmployeeService.findAllEmployees().then((response) => {
             setEmployees(response.data)
             console.log(response.data);
         }).catch(error => {
@@ -25,14 +25,11 @@ const ListEmployeeComponent = () => {
                 <Link to="/inserir-funcionario" className="btn btn-primary mb-2">Inserir funcionário</Link>
                 <table className="table table-striped table-bordered">
                     <thead>
-                        <tr>
-                            <th> Funcionário Nome</th>
-                            <th> Funcionário Telefone</th>
-                            <th> Funcionário Email</th>
-                            <th> Funções</th>
-                        </tr>
+                        <th> Funcionário Nome</th>
+                        <th> Funcionário Telefone</th>
+                        <th> Funcionário Email</th>
+                        <th> Funções</th>
                     </thead>
-
                     <tbody>
                         {
                             employees.map(
