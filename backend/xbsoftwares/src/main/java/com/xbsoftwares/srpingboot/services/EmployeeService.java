@@ -33,6 +33,10 @@ public class EmployeeService {
 		updateData(entity, obj);
 		return employeeRepository.save(entity);
 	}
+	
+	public void delete(Long id) {
+		employeeRepository.deleteById(id);
+	}
 
 	private void updateData(Employee entity, Employee obj) {
 		entity.setName(obj.getName());
