@@ -27,4 +27,17 @@ public class EmployeeService {
 		Optional<Employee> obj = employeeRepository.findById(id);
 		return obj.get();
 	}
+	
+	public Employee update(Long id, Employee obj) {
+		Employee entity = employeeRepository.getOne(id);
+		updateData(entity, obj);
+		return employeeRepository.save(entity);
+	}
+
+	private void updateData(Employee entity, Employee obj) {
+		entity.setName(obj.getName());
+		entity.setPhone(obj.getPhone());
+		entity.setEmailId(obj.getEmailId());
+		entity.setAction(obj.getAction());
+	}
 }
