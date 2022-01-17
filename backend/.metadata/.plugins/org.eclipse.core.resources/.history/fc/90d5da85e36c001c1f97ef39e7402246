@@ -1,5 +1,0 @@
-package com.xbsoftwares.srpingboot.exceptions;
-
-public class ResourceNotFoundException {
-
-}

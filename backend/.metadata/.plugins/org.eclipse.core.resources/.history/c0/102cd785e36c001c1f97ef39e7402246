@@ -1,9 +1,0 @@
-package com.xbsoftwares.srpingboot.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.xbsoftwares.srpingboot.model.Employee;
-
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-
-}

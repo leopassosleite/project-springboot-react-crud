@@ -18,6 +18,24 @@ const ListEmployeeComponent = () => {
 
     }, [])
 
+    const findAllEmployees = () => {
+        EmployeeService.findAllEmployees().then((response) => {
+            setEmployees(response.data)
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
+    const deleteEmployee = (employeeid) => {
+        EmployeeService.deleteEmployee(employeeid).then((response) => {
+            findAllEmployees();
+
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
     return (
         <div className={styles.body}>
             <div className="container">
@@ -29,6 +47,7 @@ const ListEmployeeComponent = () => {
                         <th> Funcionário Telefone</th>
                         <th> Funcionário Email</th>
                         <th> Funções</th>
+                        <th> Actions</th>
                     </thead>
                     <tbody>
                         {
@@ -39,6 +58,10 @@ const ListEmployeeComponent = () => {
                                         <td> {employee.phone} </td>
                                         <td> {employee.emailId} </td>
                                         <td> {employee.action} </td>
+                                        <td >
+                                            <Link className="btn btn-info" to={`/editar-funcionario ${employee.id}`}>Editar</Link>
+                                            <button className="btn btn-danger" onClick={() => deleteEmployee(employee.id)} style={{ marginLeft: "10px" }}>Deletar</button>
+                                        </td>
                                     </tr>
                             )
                         }

@@ -6,7 +6,7 @@ import Footer from './components/layout/Footer';
 
 import Home from './components/pages/Home';
 import NewProject from './components/pages/NewProject';
-import Projects from './components/pages/Projects';
+import ListProjectComponent from './components/layout/ListProjectComponent';
 
 import NavBar from './components/layout/NavBar';
 import Container from './components/layout/Container';
@@ -23,9 +23,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/novo-projeto" element={<NewProject />} />
-            <Route path="/projetos" element={<Projects />} />
+            <Route path="/projetos" element={<ListProjectComponent />} />
             <Route path="/funcionarios" element={<ListEmployeeComponent />} />
             <Route path="/inserir-funcionario" element={<CreateEmployeeComponent />} />
+            <Route path="/editar-funcionario:id" element={<CreateEmployeeComponent />} />
           </Routes>
         </Container>
         <Footer />
